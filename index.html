@@ -3,37 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>Meteo App</title>
   </head>
   <body>
-    <header>
-      <form action="">
-        <input type="search" placeholder="Enter a city..." required />
-        <input type="submit" value="search" />
-      </form>
-    </header>
-    <main>
-      <div>
-        <h1>Cardiff</h1>
-        <p>
-          Sunday 23:39, scattered clouds <br />
-          Humidity:65% Wind:3.5km/h
-        </p>
-      </div>
-      <div>🌤 12ºC</div>
-      
-    </main>
-    <footer>
-      This site is coded by
-      <a href="https://github.com/Sise-Tounkara" target="_blank"
-        >Sise Tounkara</a
-      >
-      it is
-      <a href="https://github.com/Sise-Tounkara/meteo" target="_blank"
-        >open-sourced on GitHub</a
-      >
-      and hosted on
-      <a href="https://meteos.netlify.app/" target="_blank">Netlify</a>
-    </footer>
+    <div class="weather-app">
+      <header>
+        <form action="">
+          <input type="search" placeholder="Enter a city..." required />
+          <input type="submit" value="search" />
+        </form>
+      </header>
+      <main>
+        <div>
+          <h1>Cardiff</h1>
+          <p>
+            Sunday 23:39, scattered clouds <br />
+            Humidity:65% Wind:3.5km/h
+          </p>
+        </div>
+        <div>🌤 12ºC</div>
+      </main>
+      <footer>
+        This site is coded by
+        <a href="https://github.com/Sise-Tounkara" target="_blank"
+          >Sise Tounkara</a
+        >
+        it is
+        <a href="https://github.com/Sise-Tounkara/meteo" target="_blank"
+          >open-sourced on GitHub</a
+        >
+        and hosted on
+        <a href="https://meteos.netlify.app/" target="_blank">Netlify</a>
+      </footer>
+    </div>
   </body>
 </html>

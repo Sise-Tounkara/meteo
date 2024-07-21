@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.weather-app {
+  background-color: rgba(255, 255, 255, 0.3);
+  max-width: 600px;
+  margin: 45px auto;
+  border-radius: 15px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.3);
+  padding: 30px;
+}
