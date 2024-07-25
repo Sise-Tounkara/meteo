@@ -31,14 +31,12 @@ function displayData(response) {
   let date = new Date(response.data.time * 1000);
   let icon = document.querySelector("#icon");
 
-
-
   currentTemperature.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
   description.innerHTML = response.data.condition.description;
   humidity.innerHTML = response.data.temperature.humidity;
   windSpeed.innerHTML = response.data.wind.speed;
-  timeElement.innerHTML = formatDate(date); 
+  timeElement.innerHTML = formatDate(date);
   icon.innerHTML = `<img
                 src="${response.data.condition.icon_url}"
                 alt=""
@@ -58,7 +56,21 @@ function handleSearchSubmit(event) {
   let searchInput = document.querySelector("#search-form-input");
   searchCity(searchInput.value);
 }
+
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+
+  forecastHtml = forecastHtml + `<div class="weather-forecast-day"><div class="weather-forecast-date">${day}</div><div class="weather-forecast-icon">🌤</div><div class="weather-forecast-temperatures"><div class="weather-forecast-temperature"><strong>15º</strong></div><div class="weather-forecast-temperature">9º</div></div></div>`;
+  }); 
+let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Cardiff");
+
+displayForecast();
