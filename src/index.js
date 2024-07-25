@@ -42,6 +42,7 @@ function displayData(response) {
                 alt=""
                 class="weather-app-icon"
               />`;
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {
@@ -57,20 +58,26 @@ function handleSearchSubmit(event) {
   searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+  let apiKey = "1eo9e49738c1c8cbf989d040tcbb916a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = "";
 
   days.forEach(function (day) {
-
-  forecastHtml = forecastHtml + `<div class="weather-forecast-day"><div class="weather-forecast-date">${day}</div><div class="weather-forecast-icon">🌤</div><div class="weather-forecast-temperatures"><div class="weather-forecast-temperature"><strong>15º</strong></div><div class="weather-forecast-temperature">9º</div></div></div>`;
-  }); 
-let forecastElement = document.querySelector("#forecast");
+    forecastHtml =
+      forecastHtml +
+      `<div class="weather-forecast-day"><div class="weather-forecast-date">${day}</div><div class="weather-forecast-icon">🌤</div><div class="weather-forecast-temperatures"><div class="weather-forecast-temperature"><strong>15º</strong></div><div class="weather-forecast-temperature">9º</div></div></div>`;
+  });
+  let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
 }
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Cardiff");
-
-displayForecast();
